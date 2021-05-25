@@ -1,6 +1,7 @@
 package de.elk.service;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Datenbank {
 
@@ -13,6 +14,9 @@ public class Datenbank {
     }
 
     public Person findePerson(String name){
+        for(Map.Entry<String,Person> keyEntry:personHashMap.entrySet()){
+
+        }
         return personHashMap.get(name);
     }
 
@@ -22,5 +26,9 @@ public class Datenbank {
         }else {
             throw new RuntimeException("Person already in DB");
         }
+    }
+
+    public static HashMap<String, Person> getPersonHashMap() {
+        return personHashMap;
     }
 }

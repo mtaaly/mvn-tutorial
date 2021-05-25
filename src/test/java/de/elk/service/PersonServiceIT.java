@@ -19,4 +19,21 @@ public class PersonServiceIT {
         personService.addPerson("Vianney",14);
         assertNotNull(personService.findePerson("Vianney"));
     }
+
+    @Test
+    public void testfindPersonInStreet_EmptyStreet() {
+        PersonService personService = new PersonService();
+        assertTrue(personService.findPersonInStreet(null).isEmpty());
+    }
+    @Test
+    public void testfindPersonInStreet_PersonInStreet() {
+        PersonService personService = new PersonService();
+        Person newPerson=new Person(12,"tester");
+        Adresse adresse=new Adresse();
+        adresse.setStreet("test street");
+        newPerson.setAdresse(adresse);
+        assertTrue(personService.findPersonInStreet("test street").isEmpty());
+        Datenbank.getPersonHashMap().put("tester",newPerson);
+        assertFalse(personService.findPersonInStreet("test street").isEmpty());
+    }
 }
