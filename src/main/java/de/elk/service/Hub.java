@@ -11,4 +11,8 @@ public class Hub {
         return new Person(4, "testPerson");
     }
 
+    public void vide (){
+        System.out.println("");
+    }
+
 }
