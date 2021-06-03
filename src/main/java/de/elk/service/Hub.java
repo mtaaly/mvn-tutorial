@@ -9,8 +9,6 @@ public class Hub {
         return a*b;
     }
 
-    public Person getPerson(){
-        return new Person(4, "testPerson");
-    }
+
 
 }
