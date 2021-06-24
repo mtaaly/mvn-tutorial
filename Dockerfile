@@ -22,6 +22,9 @@ RUN cd $HOME \
 # Ensure signals are forwarded to the JVM process correctly for graceful shutdown
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
 
+#Deploy the mvn-tutorial.war to wildfly
+COPY ./target/mvn-tutorial.war $JBOSS_HOME/standalone/deployments
+
 USER jboss
 
 # Expose the ports in which we're interested
