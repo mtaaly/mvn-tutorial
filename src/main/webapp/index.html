@@ -1,6 +1,26 @@
 <html>
 <head></head>
 <body>
-<h1>Hello Marcellin</h1>
+<h1>Docker Image</h1>
+<ul>
+    <li>docker image build --tag=IMAGE_NAME .: build an image, IMAGE_NAME should be lowercase</li>
+    <li>docker image ls: show all images</li>
+    <li>docker image rm IMAGE_NAME: remove an Image</li>
+    <li>docker container ls: show all activ containers</li>
+    <li>docker container ls -a: show all containers</li>
+    <li>docker container stop CONTAINER_NAME: stop a container</li>
+    <li>docker container rm CONTAINER_NAME: remove a container</li>
+    <li>docker run --name CONTAINER_NAME -p PORT_OUT:PORT_IN IMAGE_NAME: create a container for an image and lauch it to
+        PORT_OUT
+    </li>
+</ul>
+<h1>Docker Compose</h1>
+<ul>
+    <li>docker compose up: Started all services</li>
+    <li>docker compose up -d: Started all services in background</li>
+    <li>docker compose build: build the images in Service</li>
+    <li>docker compose build --no-cache: build the images in Service and ignore cache</li>
+    <li>docker compose down: Stop all Services</li>
+</ul>
 </body>
 </html>

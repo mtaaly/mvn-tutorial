@@ -23,7 +23,7 @@ RUN cd $HOME \
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
 
 #Deploy the mvn-tutorial.war to wildfly
-COPY ./target/mvn-tutorial.war $JBOSS_HOME/standalone/deployments
+#COPY ./target/mvn-tutorial.war $JBOSS_HOME/standalone/deployments
 
 USER jboss
 

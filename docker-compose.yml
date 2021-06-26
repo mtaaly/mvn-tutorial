@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  mvn:
+    image: maven:3.8-openjdk-11
+    volumes:
+      - .:/usr/src/mvn-tutorial
+      - app-volume:/dist
+    working_dir: /usr/src/mvn-tutorial
+    command: bash -c "
+        rm /dist/*.war
+        && mvn clean install
+        && cp target/*.war /dist
+      "
+  web:
+    build: .
+    volumes:
+      - app-volume:/opt/jboss/wildfly/standalone/deployments
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - mvn
+volumes:
+    app-volume:
