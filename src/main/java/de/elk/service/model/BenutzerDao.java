@@ -13,6 +13,7 @@ public class BenutzerDao {
     public List<Benutzer> getBenutzer(){
         Benutzer benutzer=new Benutzer();
         benutzer.setName("taaly");
+        benutzer.setVorname("marcellin");
         entityManager.persist(benutzer);
         return entityManager.createQuery("select x from Benutzer x").getResultList();
     }

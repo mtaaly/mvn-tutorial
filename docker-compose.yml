@@ -15,6 +15,7 @@ services:
     build: .
     volumes:
       - app-volume:/opt/jboss/wildfly/standalone/deployments
+      - ./dist:/opt/jboss/wildfly/standalone/deployments
     ports:
       - "8080:8080"
       - "3307:3306"
